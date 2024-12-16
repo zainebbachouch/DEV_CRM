@@ -1,0 +1,34 @@
+table autorisation 
+
+emailUtilisateur    delete Client /facture/commande/produit/categorie    add Client /facture/commande/produit/categorie      update Client /facture/commande/produit/categorie
+zb@gmail.com        true      false      true 
+
+select * from autorisation where emailUtilisateur=value
+
+
+
+
+zb@gmail.com => true false true 
+{autorisation.delete=="true" && 
+<button class...>Delete </button>} 
+
+emailUtilisateur    delete               add                     update 
+zb@gmail.com        inactive/active     inactive/active       inactive/active  
+
+
+gerer moi autorisation a appliquer comme select * dapres email 
+zb@gmail.com  comparers les artributs => true false true 
+si dans page produit {autorisation.deleteproduit=="true" && 
+<button class...>Delete </button>} affiche bouton ou non 
+
+
+j'ai deja commente dans route listAdminAuthorized
+  erruer si j'ai commentais assi en backend 
+ 
+
+
+controller function email reciper avec message  table notification add notification sender (systeme/usermail) add columm seen boolean handlckiet allupdate 
+id email_destinataire message date 
+
+
+task ->> prioter sort (dapres enum) ou mis a jour dapres nombre 

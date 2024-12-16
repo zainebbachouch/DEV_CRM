@@ -1,0 +1,111 @@
+/* Overall container styling */
+.product-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    /* Increased padding for consistent spacing */
+    background-color: #f5f7fa;
+    /* Slightly lighter for better readability */
+    height: 100vh;
+}
+
+/* Card styling */
+.product-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #fff;
+    border: 2px solid #2c3e50;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    height: 500px;
+    /* Ensure a consistent height for the card */
+}
+
+
+
+/* Product image styling */
+.product-imagee {
+    width: 40%;
+    /* Take 40% of the card width */
+    height: 100%;
+    /* Fill the card's height */
+    object-fit: cover;
+    /* Ensures the image scales properly */
+    border-right: 3px solid #2c3e50;
+    /* Add a consistent border */
+}
+
+/* Product information styling */
+.product-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Title styling */
+.product-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Description styling */
+.product-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Price and other details */
+.product-price,
+.product-category,
+.product-discount,
+.product-dates {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.product-price span,
+.product-category span,
+.product-discount span,
+.product-dates span {
+    font-weight: bold;
+    color: #0056b3;
+    /* Deep blue */
+}
+/* Button styling */
+.add-to-basket {
+    padding: 15px 30px; /* Increased padding for more prominence */
+    font-size: 20px; /* Larger font size for visibility */
+    font-weight: bold; /* Bold font to make it stand out */
+    border: none;
+    background-color: #ff9800; /* Bright orange for high visibility */
+    color: white; /* White text for contrast */
+    border-radius: 8px; /* Slightly more rounded corners for aesthetics */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Pointer cursor for interactivity */
+    text-align: center; /* Center-align text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    width: fit-content; /* Ensures it doesn't stretch unnecessarily */
+    margin: 20px auto 0; /* Center the button with spacing above */
+    display: block; /* Ensure it aligns properly as a block element */
+}
+
+.add-to-basket:hover {
+    background-color: #e57300; /* Darker orange on hover */
+    transform: translateY(-4px); /* Lift effect for interactivity */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+.add-to-basket:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.5); /* Add a focused border */
+}

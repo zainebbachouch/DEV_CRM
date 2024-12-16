@@ -1,0 +1,340 @@
+/* wrnnig message */
+.spam-message {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.spam-warning {
+    color: red;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+
+/* Sidebar */
+.srch_bar input {
+    border: 1px solid #cdcdcd;
+    border-width: 0 0 1px 0;
+    width: 80%;
+    padding: 2px 0 4px 6px;
+    background: none;
+}
+
+.srch_bar .input-group-addon button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    padding: 0;
+    color: #707070;
+    font-size: 18px;
+}
+
+.srch_bar .input-group-addon {
+    margin: 0 0 0 -27px;
+}
+
+/* Liste principale */
+.conversationList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Chaque élément de conversation */
+.conversationItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Espace entre le contenu principal et l'heure */
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol */
+.conversationItem:hover {
+    background-color: #f9f9f9;
+}
+
+/* Contenu principal (photo + détails) */
+.conversationContent {
+    display: flex;
+    align-items: center;
+}
+
+
+.conversationBar {
+    width: fit-content;
+    background-color: #f5f5f5;
+    padding: 10px;
+    overflow-y: auto;
+    grid-area: discussionBar;
+    color: var(--bs-muted);
+
+
+}
+
+.conversationBar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.conversationBar li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.conversationBar li span:first-child {
+    font-size: 14px;
+    color: #333;
+    margin-right: auto;
+}
+
+.conversationBar li span:last-child {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Conversation */
+.conversation {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.conversation-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.conversation-header span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Détails de la conversation */
+.conversationDetails {
+    display: flex;
+    flex-direction: column; /* Détails empilés */
+  }
+  
+  /* Role de l'utilisateur */
+  .conversationRole {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Nom de l'utilisateur */
+  .conversationName {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Message tronqué */
+  .conversationMessage {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  /* Timestamp */
+  .conversationTimestamp {
+    font-size: 12px;
+    color: #aaa;
+    white-space: nowrap; /* Évite de couper la date */
+    margin-left: 10px;
+  }
+.conversation-body {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    /* Ajout de la propriété overflow-y */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 60%;
+    word-wrap: break-word;
+}
+
+.message-left {
+    background-color: #f1f0f0;
+    align-self: flex-start;
+}
+
+.message-right {
+    background-color: #81cee7;
+    align-self: flex-end;
+}
+
+.message span:first-child {
+    font-size: 14px;
+    color: #333;
+}
+
+.message span:last-child {
+    font-size: 12px;
+    color: #888;
+    align-self: flex-end;
+}
+
+/*uniqueConversations*/
+.uniqueConversations {
+    margin-top: 20px;
+    height: 300;
+
+    overflow-y: scroll;
+    /* Ajout de la propriété overflow-y */
+}
+
+/* Footer */
+.conversation-footer {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.conversation-footer input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.conversation-footer button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+
+.conversation-footer button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add styles for the "All Users" section */
+.all-users {
+    margin-top: 20px;
+    height: 300px;
+
+    overflow-y: scroll;
+    /* Ajout de la propriété overflow-y */
+
+
+}
+
+.all-users h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.all-users ul {
+    list-style: none;
+    padding: 0;
+
+}
+
+.all-users li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.all-users li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.all-users li span {
+    font-size: 16px;
+}
+
+.isFile {
+    text-decoration-style: solid;
+    text-decoration-color: black;
+    text-decoration-line: underline;
+}
+
+.messengerContainer {
+    position: relative;
+    left: 6.8vw;
+    width: 85vw !important;
+}
+
+.conversationsContainer {
+    height: 85vh !important;
+    width: auto !important;
+    grid-area: conversationDisplay;
+    margin: 0;
+}
+
+.messengerContainer {
+    display: grid;
+    position: relative;
+    width: 82vw !important;
+    left: 125px;
+    grid-template-areas:
+        "discussionBar conversationDisplay"
+    ;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 20px;
+}
+
+.sendMessageButton {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+}
+
+/* Image de la conversation */
+.conversationPhoto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Cercle */
+    margin-right: 10px;
+}
+
+#messageContainerCstm {
+    position: relative;
+    left: 150px;
+    width: 80vh !important;
+}

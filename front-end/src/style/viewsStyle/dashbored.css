@@ -1,0 +1,224 @@
+.d-flex {
+  display: flex;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  
+}
+.dashboard-content
+{
+  
+ position: relative;
+ left: 75px;
+ width: 93vw;
+
+}
+.chart-selection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.chart-selection label {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: rgb(255, 255, 255);
+
+  border-radius: 8px;
+  height: 50vh;
+  width: 100vh;
+}
+
+
+@media (max-width: 768px) {
+  .chart-container {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  height: 40%;
+  /* Changed from 40% to 40vh */
+  width: 100%;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.value {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+select {
+  margin-bottom: 20px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.card .dropdown {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+}
+
+/* New Sections CSS */
+.recent-activities h2 {
+  margin-top: 165px;
+}
+
+.recent-activities,
+.performance-overview {
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 100px;
+}
+.performance-overview{
+  width: 80%;
+  position: relative;
+  left: 150px;
+}
+.recent-activities h2,
+.performance-overview h2 {
+  text-align: left;
+  /* Align titles to the left */
+}
+/**nunber Number of Products by Category*/
+.number-of-products-by-category-chart {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.number-of-products-by-category-chart h2 {
+  margin-bottom: 20px;
+}
+
+.number-of-products-by-category-chart .category-list {
+  margin-top: 20px;
+  max-height: 200px; /* Adjust as needed */
+  overflow-y: auto;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.number-of-products-by-category-chart .category-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.number-of-products-by-category-chart .category-name {
+  font-weight: bold;
+}
+
+.number-of-products-by-category-chart .product-count {
+  color: #555;
+}
+.lineChart
+{
+width :0px;
+}
+.chart
+{
+  max-height: 1000px;
+  border-radius: 25px;
+
+}
+.predictSalesBtn
+{
+  margin: auto !important;
+  margin-top: 15px !important;
+}
+.chart-selection .btn {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+.statsBarChart
+{
+  width: 80vw !important;
+  position: relative;
+  left: 80px;
+
+}

@@ -1,0 +1,152 @@
+.dropdown {
+  position: relative;
+  float: right;
+  color: blue;
+  font-size: 25px;
+  /* or any other size you prefer */
+}
+
+.icon1 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  min-width: 160px;
+}
+
+.dropdown-item {
+  padding: 12px 16px !important;
+  text-decoration: none !important;
+  display: block !important;
+  color: black !important;
+  cursor: pointer !important;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.tasksContainer {
+  position: relative !important;
+  left: 250px !important;
+  display: flex !important;
+  justify-content: space-between;
+  width: 80vw;
+  margin-top: 10px;
+  background-color: rgb(242, 242, 242);
+}
+
+.task-item {
+  width: 20vw !important;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+
+}
+
+span {
+  font-weight: 600;
+}
+
+#addButtonTask {
+  background-color: #6060FF !important;
+  border: none !important;
+  width: 250px !important;
+  position: relative;
+  left: 80%;
+}
+
+
+.taskTitleCtr {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  column-gap: 10px;
+  font-size: 25px;
+  margin-top: 15px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+#tkCountContainer {
+  background-color: #6060FF;
+  width: 30px !important;
+  height: 30px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px !important;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #fff;
+
+}
+
+.plusAddBtn {
+  background-color: #fff !important;
+  color: gray !important;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  border: none;
+  align-items: center;
+}
+
+.taskHeader {
+  border-bottom: 1.25px solid rgb(167, 167, 167);
+}
+
+.taskBody {
+  font-size: 16px;
+  color: gray;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photoEmployeTask {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-size: contain;
+  position: relative;
+}
+
+.btnMenuEditor {
+  display: flex !important;
+  position: absolute;
+  left: 50px;
+  top: -10px;
+  flex-direction: column;
+  padding: 0;
+  font-size: 16px;
+  background-color: white;
+  row-gap: 5px;
+}
+
+.edtTsk,
+.dltTsk {
+  color: #fff !important;
+
+}
+
+.edtTsk {
+  color: #f5bb0ce0 !important;
+}
+
+.dltTsk {
+  color: #DC3545 !important;
+}

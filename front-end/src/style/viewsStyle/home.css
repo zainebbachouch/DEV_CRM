@@ -1,0 +1,512 @@
+/* home.css */
+
+/* Global styling */
+/* Section 1: Story */
+.section-1 {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  gap: 20px; /* Add space between the image and text */
+}
+.imageHeroSection
+{
+width:90% !important;
+}
+.section-content {
+  flex: 1;
+}
+
+.section-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.section-1 img {
+  flex: 1;
+  max-width: 10%; /* Restrict the width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  object-fit: cover; /* Ensure the image scales proportionally */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better design */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+
+}
+
+.hero-slide {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.edit-btn,
+.add-btn {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.edit-btn:hover,
+.add-btn:hover {
+  color: #ddd;
+}
+
+/* Section 1: Story */
+.section-1 {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.section-content {
+  flex: 1;
+}
+
+.section-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.section-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.section-content ul li {
+  padding-left: 20px;
+  position: relative;
+}
+
+.section-content ul li::before {
+  content: '✔️';
+  position: absolute;
+  left: 0;
+}
+
+.section-1 img {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Section 2: Features */
+.section-2 {
+  padding: 40px;
+  background-color: #f9f9f9;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  padding: 20px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card i {
+  font-size: 36px;
+}
+
+.feature-card h3 {
+  margin: 10px 0;
+}
+
+/**************************************/
+/* Global styling */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.hero-slide {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: 0.9s ease-in-out;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 3;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots Navigation */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
+.dot:hover {
+  background-color: #555;
+}
+
+/**********************************/
+/* Custom styling for the editor container */
+.editor-container {
+  border: 1px solid #ccc;
+  min-height: 200px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* You can add toolbar or editor-specific styles */
+.toolbar-class {
+  background-color: #f4f4f4;
+}
+
+.editor-class {
+  min-height: 150px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/************************/
+/*card slider*/
+.responsible-section {
+  padding: 20px;
+}
+
+.add-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.card-slider {
+  display: flex;
+  overflow-x: scroll;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 15px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  /* Circular images */
+  margin: 0 auto;
+}
+
+.card-content h3 {
+  margin: 10px 0 5px;
+  text-align: center;
+}
+
+.card-content p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.card button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+/* Slider Buttons (Next/Prev) */
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1050;
+  border-radius: 10px;
+}
+
+.modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .modal-header h5 {
+  margin: 0;
+}
+
+.modal .modal-header .btn-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal .modal-footer button {
+  margin-left: 10px;
+}
+
+.mainContent {
+  width: auto;
+  margin-left: 250px;
+}
+
+.btnSlide {
+  width: 125px;
+  height: fit-content;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.changeSlideBtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 1px solid #ae9f00;
+}
+
+#editStoryBtn {
+  background-color: #FFC107;
+}
+
+.editButtonResp,
+.editButtonResp:hover {
+  color: #fff !important;
+  background-color: #28A745 !important;
+  width: 250px !important;
+}
+
+.deleteButtonResp,
+.deleteButtonResp:hover {
+  background-color: #DC3545 !important;
+  color: #fff !important;
+  width: 250px !important;
+}
+
+.feedback-list {
+  height: fit-content !important;
+}
+
+.modalEditor {
+  background-color: #fff !important;
+  width: fit-content !important;
+  padding: 10px !important;
+  position: relative !important;
+  left: 20vw !important;
+  border-radius: 5px !important;
+  top: -80vh !important;
+  box-shadow: 0px 2px 100px 350px rgba(0, 0, 0, 0.75) !important;
+
+
+}
+
+.modalContent {
+  background-color: #fff !important;
+}
+
+
+.saveChangesButton {
+  background-color: #28A745 !important;
+  color: #fff !important;
+  border: none;
+  padding: 9px;
+  border-radius: 5px;
+}
+
+.editStoryModal {
+  position: relative !important;
+  left: 45vw !important;
+  top: -25vh !important;
+  z-index: 1;
+  box-shadow: 0px 2px 100px 1000px rgba(0, 0, 0, 0.45) !important;
+}
+.editHeroModalId
+{
+  position:relative !important;
+  left: 45vw !important;
+  top: -20vh !important;
+}

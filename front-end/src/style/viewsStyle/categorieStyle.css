@@ -1,0 +1,119 @@
+.main-content {
+    padding: 10px;
+    background-color: #dbe1e4;
+    height:fit-content !important;
+    
+}
+
+.categories-list {
+    margin-right: 30%;
+    margin-top: 80px; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .categories-list table {
+    margin-bottom: 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .categories-list table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .categories-list table tbody td {
+    vertical-align: top;
+    padding: 0.75rem;
+    border-top: 1px solid #ddd;
+  }
+  
+  .categories-list table tbody tr:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .categories-list table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  
+  .categories-list table tbody .actions {
+    white-space: nowrap;
+    width: 1%;
+  }
+  
+  .categories-list table tbody .actions button {
+    margin: 0 5px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 0.25rem;
+  }
+  
+  .categories-list table tbody .actions button:hover {
+    background-color: #dee2e6;
+  }
+  
+  .categories-list table tbody .actions button.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .categories-list table tbody .actions button.btn-danger:hover {
+    background-color: #bd2130;
+    border-color: #bd2130;
+  }
+  
+  .categories-list table tbody .actions button.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .categories-list table tbody .actions button.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .col {
+    flex: 1 1 auto;
+    max-width: 60%;
+  }
+  
+  @media (max-width: 767.98px) {
+    .categories-list table {
+      width: 100%;
+      overflow-x: auto;
+    }
+  
+    .categories-list table thead th,
+    .categories-list table tbody td {
+      padding: 0.5rem;
+    }
+  
+    .categories-list table tbody .actions {
+      width: auto;
+    }
+  
+    .categories-list table tbody .actions button {
+      margin: 0 2px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+    }
+  }
+  
+.addCategoryButton
+{
+  background-color: var(--bs-primary);
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.categoryContentDisplayer
+{
+  width: 81vw !important;
+}

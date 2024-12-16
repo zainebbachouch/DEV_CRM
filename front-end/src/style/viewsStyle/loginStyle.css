@@ -1,0 +1,67 @@
+.loginContainer
+{
+    width: 100vw  !important ;
+    height: 100vh  !important ;
+    background-color: #e7e7e7  !important ;
+}
+.loginForm
+{
+    width: 40vw  !important ;
+    height: 80vh  !important ;
+    background-color: #fff  !important ;
+    border-radius: 15px  !important ;
+}
+.icon
+{
+    border: 1px solid var(--backgroundColor)  !important ;
+    border-radius: 5px  !important ;
+    width: 100px  !important ;
+    display: flex  !important ;
+    justify-content: center  !important ;
+}
+.socialMediaIcon
+{
+    width: 25px  !important ;
+    height: 25px  !important ;
+}
+.horiazontalLine
+{
+    height: 2px  !important ;
+    width: 100%  !important ;
+    background-color: var(--backgroundColor)  !important ;
+}
+.loginMessage 
+{
+    background-color: #fff  !important ;
+    font-size: 14px  !important ;
+}
+.loginButton
+{
+    background-color: var(--blueColor)  !important ;
+    color: #fff  !important ;
+}
+.loginButton:hover
+{
+    background-color: #0f87d2  !important ;
+    color: #FFF  !important ;
+}
+.forgotMessage
+{
+    color: var(--blueColor)  !important ;
+}
+.signupMessage
+{
+    color: var(--blueColor)  !important ;
+}
+.logo
+{
+    width: 30px  !important ;
+    height: 30px  !important ;
+
+}
+.hr
+{
+    width: 80px  !important ;
+    height: 2px  !important ;
+    background-color: var(--backgroundColor)  !important ;
+}

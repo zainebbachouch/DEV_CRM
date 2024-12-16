@@ -1,0 +1,9 @@
+.productsCartContainer {
+    display: flex; /* Use flexbox to align the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Take full width */
+    padding: 20px; /* Add padding for spacing */
+    margin: 0 auto; /* Center within its container */
+    background-color: #f8f9fa; /* Optional: Add background color */
+}

@@ -1,0 +1,283 @@
+/* In feedback.css */
+.feedback-item.positive {
+    border-left: 5px solid green;
+    background-color: #e8f5e9;
+}
+
+.feedback-item.negative {
+    border-left: 5px solid red;
+    background-color: #ffebee;
+}
+
+.feedback-item.neutral {
+    border-left: 5px solid gray;
+    background-color: #f5f5f5;
+}
+
+
+/* like/dislike icon styles */
+.liked-icon {
+    color: #007BFF !important; /* Green for liked */
+}
+
+.disliked-icon {
+    color: #f44336 !important; /* Red for disliked */
+}
+
+/* You can also style the button borders separately if needed */
+button.like-button.liked {
+    border: 2px solid #007BFF; /* Green border for liked */
+}
+
+button.dislike-button.disliked {
+    border: 2px solid #f44336; /* Red border for disliked */
+}
+
+
+
+
+.feedback-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+}
+
+.feedback-form-container {
+    width: 40%;
+    padding: 20px;
+    background-color: #e6f2ff;
+    border-radius: 8px;
+}
+
+.feedback-form-container h3 {
+    margin-bottom: 20px;
+    color: #0a74da;
+}
+
+.feedback-form-container textarea,
+.feedback-form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.feedback-form-container button {
+    background-color: #0a74da;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.feedback-form-container button:hover {
+    background-color: #084d9b;
+}
+
+.feedback-list {
+    width: 55%;
+ /* Set a fixed height for the comment section */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Add some padding to avoid overlap with the scrollbar */
+}
+
+.feedback-item {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-header {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feedback-body {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.feedback-actions button {
+    margin-right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #0a74da;
+}
+
+.feedback-actions .like-button:hover,
+.feedback-actions .dislike-button:hover,
+.feedback-actions .reply-button:hover {
+    color: #084d9b;
+}
+.edit-button, .delete-button {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #0a74da;
+}
+
+.edit-button:hover, .delete-button:hover {
+    color: #084d9b;
+}
+
+/* Category filter buttons */
+.category-filter {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.category-filter button {
+    background-color: #0a74da;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.category-filter button:hover {
+    background-color: #084d9b;
+}
+
+/* Feedback list styling */
+.feedback-list {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-item {
+    background-color: #f4f4f4;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.feedback-item:hover {
+    background-color: #e9ecef;
+}
+
+.feedback-header {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.feedback-body {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.feedback-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.feedback-actions button {
+    background: none;
+    border: none;
+    color: #0a74da;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.feedback-actions button:hover {
+    color: #084d9b;
+}
+
+.edit-button,
+.delete-button {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #0a74da;
+    transition: color 0.3s ease-in-out;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+    color: #084d9b;
+}
+
+/* Replies list styling */
+.replies-list {
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.reply-item {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reply-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.reply-form textarea:focus {
+    background-color: #e9ecef;
+    border-color: #0a74da;
+    outline: none;
+}
+
+.reply-form button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #0a74da;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.reply-form button:hover {
+    background-color: #084d9b;
+}
+
+/* Star rating styling */
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.star-rating p {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+}
