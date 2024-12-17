@@ -1,21 +1,21 @@
-# Étape 1: Build de l'application React
+# Step 1: Build the React application
 FROM node:18 AS build
 WORKDIR /app
 
-# Copier package.json et installer les dépendances
+# Only copy package.json and package-lock.json first (better cache handling)
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 
-# Copier tout le code source et builder l'application
+# Copy the entire source code
 COPY . ./
 RUN npm run build
 
-# Étape 2: Servir l'application avec Nginx
+# Step 2: Serve the built application with Nginx
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Exposer le port par défaut de Nginx
+# Expose port 80
 EXPOSE 80
 
-# Lancer Nginx
+# Run Nginx
 CMD ["nginx", "-g", "daemon off;"]
