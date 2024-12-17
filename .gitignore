@@ -1,2 +1,22 @@
-node_modules
+# Ignore node_modules in both folders
+crmBackend/node_modules/
+front-end/node_modules/
 
+# Ignore large or unnecessary files
+crmBackend/IA/**
+crmBackend/*.csv
+crmBackend/*.pkl
+crmBackend/*.dll
+
+# General exclusions
+*.log
+.env
+__pycache__/
+*.sll
+venv/
+
+# Front-end specific
+front-end/build/
+front-end/.pnp
+front-end/.pnp.js
+front-end/coverage/
