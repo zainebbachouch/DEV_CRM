@@ -1,18 +1,18 @@
-# Étape 1: Utiliser Node.js version 18
+# Étape 1: Utiliser l'image Node.js officielle
 FROM node:18
 
-# Étape 2: Définir le répertoire de travail
+# Définir le répertoire de travail
 WORKDIR /app
 
-# Étape 3: Installer les dépendances
+# Copier les fichiers package.json et installer les dépendances
 COPY package*.json ./
 RUN npm install
 
-# Étape 4: Copier le reste des fichiers
+# Copier le code source
 COPY . .
 
-# Étape 5: Exposer le port 5000
-EXPOSE 5000
+# Exposer le port de ton backend (ex: 5000)
+EXPOSE 4000
 
-# Étape 6: Lancer le serveur
+# Démarrer le serveur
 CMD ["node", "index.js"]
