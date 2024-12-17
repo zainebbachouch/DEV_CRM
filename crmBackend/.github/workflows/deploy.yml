@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest  # Utiliser un environnement Ubuntu
 
     steps:
-      # Étape 1: Récupérer le code
+      # Étape 1: Roçécupérer le code
       - name: Checkout code
         uses: actions/checkout@v3
 
