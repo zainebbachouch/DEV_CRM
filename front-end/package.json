@@ -26,7 +26,6 @@
     "jspdf": "^2.5.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
-    "react-autocomplete": "^1.8.1",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "^2.10.4",
     "react-chartjs-2": "^5.2.0",
@@ -64,5 +63,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.14.0"
   }
 }

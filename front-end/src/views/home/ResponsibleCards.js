@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { FaEdit, FaTrash, FaPlus, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import Autocomplete from 'react-autocomplete';
 import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -210,21 +209,7 @@ function ResponsibleCards() {
                             </div>
                             <div className="form-group">
                                 <label>Name (Autocomplete)</label>
-                                <Autocomplete
-                                    getItemValue={(item) => item.idemploye.toString()}
-                                    items={employees.filter(employee =>
-                                        `${employee.nom_employe} ${employee.prenom_employe}`.toLowerCase().includes(searchTerm.toLowerCase())
-                                    )}
-                                    renderItem={(item, isHighlighted) => (
-                                        <div key={item.idemploye} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                                            {item.nom_employe} {item.prenom_employe}
-                                        </div>
-                                    )}
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    onSelect={handleSelect}
-                                    inputProps={{ className: 'form-control' }}
-                                />
+                             
                             </div>
                             <div className="form-group">
                                 <label>Description</label>
