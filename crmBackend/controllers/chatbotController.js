@@ -1,6 +1,6 @@
 const db = require('../config/dbConnection');
 const axios = require("axios");
-const { isAuthorize } = require('../services/validateToken ')
+const { isAuthorize } = require('../services/validateToken')
 
 const userSocketMap = {};
 

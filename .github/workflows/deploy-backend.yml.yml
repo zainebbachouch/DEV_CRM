@@ -1,30 +1,37 @@
-name: Deploy Application with Docker
+name: Deploy Backend with Quality Checks
 
 on:
   push:
     branches:
-      - main  # Déclenche le workflow sur un push vers la branche main
+      - main
 
 jobs:
-  build-and-push:
-    runs-on: ubuntu-latest  # Utiliser un environnement Ubuntu
+  build-and-push-backend:
+    runs-on: ubuntu-latest
 
     steps:
-      # Étape 1: Roçécupérer le code
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Étape 2: Connexion à Docker Hub
+      # Step 2: Run Linter
+      - name: Run ESLint
+        run: |
+          cd crmBackend
+          npm install
+          npx eslint .
+
+      # Step 3: Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Étape 3: Construire et pousser l'image Docker
+      # Step 4: Build and Push Docker Image
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./crmBackend  # Assurez-vous que ce chemin est correct
+          context: ./crmBackend
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-backend:latest

@@ -2,6 +2,12 @@ const express = require("express");
 const categorieController = require("../controllers/categorieController");
 const router = express.Router();
 
+
+
+
+
+
+
 router.post('/createCategorie', categorieController.createCategorie);
 router.get('/getCategorieById/:id', categorieController.getCategorieById);
 router.get('/getAllCategories', categorieController.getAllCategories);
@@ -12,7 +18,7 @@ router.get('/searchCategories/:searchTerm', categorieController.searchCategorie)
 
 
 
-router.get('/revenue-contribution',categorieController.revenuecontribution)
+router.get('/revenue-contribution', categorieController.revenuecontribution)
 router.get('/top-selling-categories', categorieController.topSellingCategories);
 
 
@@ -22,7 +28,7 @@ router.get('/sales-distribution-by-category', categorieController.getSalesDistri
 router.get('/top-selling-categories', categorieController.topSellingCategories);
 router.get('/category-trends', categorieController.getCategoryTrends);
 router.get('/number-of-products-by-category', categorieController.getNumberOfProductsByCategory);
-router.get('/revenue-contribution-by-category',categorieController.getRevenueContributionByCategory);
+router.get('/revenue-contribution-by-category', categorieController.getRevenueContributionByCategory);
 //router.get('/stock-levels-by-category', categorieController.getStockLevelsByCategory);
 
 

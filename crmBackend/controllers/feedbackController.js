@@ -1,5 +1,5 @@
 const db = require("../config/dbConnection");
-const { isAuthorize } = require('../services/validateToken ')
+const { isAuthorize } = require('../services/validateToken')
 
 // Get all feedback
 const getAllFeedback = async (req, res) => {

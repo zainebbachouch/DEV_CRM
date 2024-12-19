@@ -684,4 +684,4 @@ app.listen(4000, () => {
 
 });
 
-module.exports.userSocketMap = userSocketMap;
+module.exports = app; // Export the app for testing

@@ -1,5 +1,5 @@
 const db = require("../config/dbConnection");
-const { isAuthorize } = require('../services/validateToken ');
+const { isAuthorize } = require('../services/validateToken');
 const { getTotalAmountAndDeliveryMethod, checkExistingInvoice } = require('./commandsContoller')
 
 const { saveToHistory } = require('./callback')

@@ -2,7 +2,7 @@ const db = require("../config/dbConnection");
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 require("dotenv").config();
-const { isAuthorize } = require('../services/validateToken ')
+const { isAuthorize } = require('../services/validateToken')
 const { createToken } = require('../services/createTokenService.js');
 const { saveToHistory, getInformationOfRole, updateInformationOfRole } = require('./callback')
 const { google } = require('googleapis');
