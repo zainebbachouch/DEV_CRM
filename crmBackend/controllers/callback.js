@@ -189,7 +189,11 @@ const saveNotification = async (email_destinataire, message) => {
 
 
 
-const getUserEmail = async (id) => {
+const getUserEmail = async (id, role) => {
+    if (!role) {
+        throw new Error("Role is required");
+    }
+
     let emailQuery = '';
     switch (role) {
         case 'admin':
@@ -208,6 +212,8 @@ const getUserEmail = async (id) => {
     const result = await db.query(emailQuery, [id]);
     return result[0][`email_${role}`];
 };
+
+
 const getEmailById = (idEmploye) => {
     return new Promise((resolve, reject) => {
         const query = 'SELECT email_employe FROM employe WHERE idemploye = ?';

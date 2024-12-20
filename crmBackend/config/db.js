@@ -1,3 +1,5 @@
+const jest = require('jest');
+
 let mockInsertId = 77; // Start with the last known ID
 let mockCategories = []; // Mocked in-memory categories
 

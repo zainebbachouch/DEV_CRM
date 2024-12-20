@@ -135,7 +135,6 @@ const getUserPermissions = async (req, res) => {
         if (authResult.message !== 'authorized') {
             return res.status(401).json({ message: "Unauthorized" });
         }
-        const userEmail = "zaineb.bachouch@gmail.com"; // Obtenir l'email de l'utilisateur connecté
 
         // Récupérer les autorisations de l'utilisateur à partir de la table 'autorisation'
         const userPermissions = await new Promise((resolve, reject) => {

@@ -1,5 +1,4 @@
 const request = require('supertest');
-const db = require('../config/db');
 const app = require('../index'); // Adjust path to your app entry point
 
 jest.mock('../services/validateToken', () => ({

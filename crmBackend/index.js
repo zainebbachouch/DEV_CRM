@@ -28,7 +28,6 @@ const { createTask, updateTaskStatus } = require('./controllers/taskController')
 
 
 const cookieParser = require("cookie-parser");
-const { equal } = require("assert");
 const app = express();
 
 const server = http.createServer(app);
@@ -335,7 +334,7 @@ io.on('connection', (socket) => {
 
 
 
-  var senderEmail, iduser, role, selectedEmployees;
+  var senderEmail, iduser, selectedEmployees, role;
 
 
   socket.on('newProduct', async (product) => {
@@ -392,7 +391,6 @@ io.on('connection', (socket) => {
       const clientEmails = clients.map(client => client.email_client);
       await saveNotifications(clientEmails, notificationMessage, senderEmail);
 
-      const senderSocketId = userSocketMap[iduser];
       for (const userId in userSocketMap) {
         if (userId !== iduser) {
           io.to(userSocketMap[userId]).emit('receiveNotification', {
@@ -414,7 +412,7 @@ io.on('connection', (socket) => {
     console.log('passCommand received', commandData);
     senderEmail = commandData.email;
     iduser = commandData.userid;
-    role = commandData.role;
+    var role = commandData.role;
 
     try {
       const req = { body: commandData };
@@ -455,7 +453,6 @@ io.on('connection', (socket) => {
         .map(employee => employee.email_employe);
       await saveNotifications(employeeEmails, notificationMessage, senderEmail);
 
-      const senderSocketId = userSocketMap[iduser];
       for (const userId in userSocketMap) {
         if (userId !== iduser) {
           io.to(userSocketMap[userId]).emit('receiveNotification', {
@@ -473,7 +470,7 @@ io.on('connection', (socket) => {
     console.log('updateCommandStatus received', commandData);
     senderEmail = commandData.email;
     iduser = commandData.userid;
-    role = commandData.role;
+    var role = commandData.role;
 
     try {
       const req = { body: commandData };
@@ -519,7 +516,6 @@ io.on('connection', (socket) => {
       const clientEmails = relatedClients.map(client => client.email_client);
       await saveNotifications(clientEmails, notificationMessage, senderEmail);
 
-      const senderSocketId = userSocketMap[iduser];
       for (const userId in userSocketMap) {
         if (userId !== iduser) {
           io.to(userSocketMap[userId]).emit('receiveNotification', {
@@ -538,7 +534,7 @@ io.on('connection', (socket) => {
     console.log('createTask received', data);
     senderEmail = data.email;
     iduser = data.userid;
-    role = data.role;
+    var role = data.role;
     selectedEmployees = data.selectedEmployees;
 
 
@@ -588,7 +584,7 @@ io.on('connection', (socket) => {
 
   socket.on('TaskifDone', async (putData) => {
     console.log('TaskifDone received', putData);
-    const { email, userid, role, token, ...taskData } = putData;
+    const { email, userid, token, ...taskData } = putData;
     const taskId = putData.taskId; // Assuming taskId is passed with the data
 
     try {
@@ -596,9 +592,9 @@ io.on('connection', (socket) => {
       const req = { body: taskData, headers: { authorization: `Bearer ${token}` }, params: { id: taskId } };
 
       // Call updateTaskStatus and extract the response
-      const response = await new Promise((resolve, reject) => {
+      const response = await new Promise((resolve) => {
         updateTaskStatus(req, {
-          status: (code) => ({
+          status: () => ({
             json: (data) => resolve(data)
           }),
         });
@@ -654,7 +650,7 @@ io.on('connection', (socket) => {
 
 
 
-  app.use((error, req, res, next) => {
+  app.use((error) => {
     console.log('This is the rejected field ->', error.field);
   });
   socket.on('disconnect', () => {

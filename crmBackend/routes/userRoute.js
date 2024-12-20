@@ -2,7 +2,6 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const router = express.Router();
 const multer = require('multer');
-const path = require('path');
 
 
 // Route pour demander un code de réinitialisation de mot de passe

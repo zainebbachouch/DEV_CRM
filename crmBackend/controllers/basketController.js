@@ -155,7 +155,7 @@ const getProductsInCart = async (req, res) => {
         }
         console.log("Client ID:", client_idclient);
 
-        const allProducts = await new Promise((resolve, reject) => {
+    /*    const allProducts = await new Promise((resolve, reject) => {
             const query = 'SELECT * FROM produit';
             db.query(query, (err, result) => {
                 if (err) {
@@ -164,7 +164,7 @@ const getProductsInCart = async (req, res) => {
                     resolve(result);
                 }
             });
-        });
+        });*/
 
        // console.log("Cart products result:", allProducts);
         /// status expidete /// add condition enattente
@@ -243,7 +243,6 @@ const completeCommand = async (req, res) => {
                 );
             });
 
-            const currentDate = new Date().toISOString();
             const commandeDetails = {
                 idcommande: currentCommandeId,
                 date_commande: commandDetails.date_commande,
