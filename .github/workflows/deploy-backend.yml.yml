@@ -24,14 +24,12 @@ jobs:
           --health-retries=3
 
     steps:
-      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Wait for MySQL
       - name: Wait for MySQL
         run: |
-          for i in {1..60}; do
+          for i in {1..120}; do
             if mysqladmin ping -h mysql -u root --password=root123 --silent; then
               echo "MySQL is ready!";
               break;
@@ -40,47 +38,36 @@ jobs:
             sleep 2;
           done
 
-      # Step 3: Update MySQL Authentication
-      - name: Configure MySQL Authentication
-        run: |
-          docker exec $(docker ps -q --filter "ancestor=mysql:8.0") \
-            mysql -u root --password=root123 -e \
-            "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
-
-      # Step 4: Initialize Database Schema
       - name: Initialize Database Schema
         run: |
           mysql -h mysql -u root --password=root123 crm_db < crmBackend/scripts/init.sql
 
-      # Step 5: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Adjust to your project's Node.js version
+          node-version: 18
 
-      # Step 6: Install dependencies
       - name: Install dependencies
         run: |
           cd crmBackend
           npm install
 
-      # Step 7: Run ESLint (Quality check)
       - name: Run ESLint
         run: |
           cd crmBackend
           npx eslint .
 
-      # Step 8: Run Unit Tests
       - name: Run Unit Tests
         env:
           NODE_ENV: test
-          DB_HOST: mysql # Use 'mysql' for Docker networking
+          DB_HOST: mysql
           DB_USERNAME: root
           DB_PASSWORD: root123
           DB_NAME: crm_db
         run: |
           cd crmBackend
           npm test
+
 
       # Step 9: Log in to Docker Hub
       - name: Log in to Docker Hub
