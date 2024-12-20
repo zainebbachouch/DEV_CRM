@@ -48,10 +48,11 @@ jobs:
             "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
 
       # Step 4: Initialize Database Schema
+            # Step: Initialize Database Schema
       - name: Initialize Database Schema
         run: |
-          docker exec $(docker ps -q --filter "ancestor=mysql:8.0") \
-            mysql -u root --password=root123 crm_db < crmBackend/scripts/init.sql
+          mysql -h localhost -u root --password=root123 crm_db < crmBackend/scripts/init.sql
+
 
       # Step 5: Set up Node.js
       - name: Set up Node.js
