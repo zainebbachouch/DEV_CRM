@@ -13,21 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Wait for Local MySQL
-        run: |
-          for i in {1..60}; do
-            if mysqladmin ping -h localhost -u root --password=root123 --silent; then
-              echo "Local MySQL is ready!";
-              break;
-            fi
-            echo "Waiting for Local MySQL...";
-            sleep 2;
-          done
-
-      - name: Test MySQL Connection
-        run: |
-          mysql -h localhost -u root --password=root123 -e "USE crm_db; SHOW TABLES;"
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -44,12 +29,6 @@ jobs:
           npx eslint .
 
       - name: Run Unit Tests
-        env:
-          NODE_ENV: test
-          DB_HOST: localhost  # Connect to your local MySQL instance
-          DB_USERNAME: root
-          DB_PASSWORD: root123
-          DB_NAME: crm_db
         run: |
           cd crmBackend
           npm test
