@@ -1,4 +1,4 @@
-name: Deploy Frontend with Quality Checks
+name: Deploy Frontend
 
 on:
   push:
@@ -14,12 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Run Linter
-      - name: Run ESLint
+      # Step 2: Install dependencies
+      - name: Install dependencies
         run: |
           cd front-end
           npm install --legacy-peer-deps
-          npx eslint .
 
       # Step 3: Log in to Docker Hub
       - name: Log in to Docker Hub

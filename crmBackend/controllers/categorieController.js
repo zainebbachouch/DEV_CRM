@@ -332,24 +332,23 @@ const topSellingCategories = async (req, res) => {
     console.log("Period for top selling categories:", period);
 
     let dateCondition;
-    let dateFormat;
+    
 
     switch (period) {
         case 'daily':
             dateCondition = `DATE(f.date_facture) = CURDATE()`;
-            dateFormat = '%Y-%m-%d';
+            
             break;
         case 'weekly':
             dateCondition = `YEARWEEK(f.date_facture, 1) = YEARWEEK(CURDATE(), 1)`;
-            dateFormat = '%Y-%u';
+          
             break;
         case 'monthly':
             dateCondition = `MONTH(f.date_facture) = MONTH(CURDATE()) AND YEAR(f.date_facture) = YEAR(CURDATE())`;
-            dateFormat = '%Y-%m';
+          
             break;
         case 'yearly':
             dateCondition = `YEAR(f.date_facture) = YEAR(CURDATE())`;
-            dateFormat = '%Y';
             break;
         default:
             return res.status(400).json({ message: "Invalid period" });
@@ -814,46 +813,11 @@ const getRevenueContributionByCategory = async (req, res) => {
 };
 
 
-const getStockLevelsByCategory = async (req, res) => {
-    try {
-        const query = `
-            SELECT 
-                c.nom_categorie AS category,
-                SUM(p.quantite_stock) AS stock_levels
-            FROM 
-                categorie c
-            JOIN 
-                produit p ON c.idcategorie = p.categorie_idcategorie
-            GROUP BY 
-                c.nom_categorie
-            ORDER BY 
-                stock_levels DESC;
-        ;`
-
-        console.log("Query for stock levels by category:", query);
-
-        const results = await new Promise((resolve, reject) => {
-            db.query(query, (err, result) => {
-                if (err) return reject(err);
-                resolve(result);
-            });
-        });
-
-        res.status(200).json(results);
-    } catch (error) {
-        console.error("Error fetching stock levels by category:", error);
-        res.status(500).json({ message: "Internal server error" });
-    }
-};
-
-
-
 module.exports = {
     revenuecontribution, topSellingCategories,
     getTotalSalesByCategory,
     getAverageSalesPriceByCategory,
     getSalesDistributionHistogram,
-    topSellingCategories,
     getCategoryTrends,
     getNumberOfProductsByCategory,
     getRevenueContributionByCategory,

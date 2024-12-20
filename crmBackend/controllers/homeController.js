@@ -24,17 +24,17 @@ const getAllHeroSections = async (req, res) => {
                 console.error('Error fetching hero sections:', err);
                 return res.status(500).json({ message: "Internal server error" });
             }
-        
+
             if (heroResult.length === 0) {
                 console.warn('No hero section found in the database');
                 return res.status(404).json({ message: "No hero section found" });
             }
-        
+
             res.status(200).json({
                 heroSections: heroResult
             });
         });
-        
+
     } catch (error) {
         console.error('Server error:', error);
         res.status(500).json({ message: "Internal server error" });
@@ -108,7 +108,8 @@ const getAllStorySections = async (req, res) => {
             res.status(200).json({ storySections: result });
         });
     } catch (error) {
-        res.status(500).json({ message: "Server error" });
+        console.error('Server error in getAllStorySections:', error.message);
+        res.status(500).json({ message: "Internal server error" });
     }
 };
 
@@ -142,6 +143,7 @@ const updateStorySection = async (req, res) => {
             res.json({ message: "Story section updated successfully" });
         });
     } catch (error) {
+        console.error('Server error in getAllStorySections:', error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -162,6 +164,7 @@ const getAllResponsibleCards = async (req, res) => {
             res.status(200).json({ responsibleCards: result });
         });
     } catch (error) {
+        console.error('Server error in getAllStorySections:', error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -191,6 +194,7 @@ const createResponsibleCard = async (req, res) => {
             res.status(201).json({ message: "Responsible card created successfully", id: result.insertId });
         });
     } catch (error) {
+        console.error('Server error in getAllStorySections:', error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -224,6 +228,7 @@ const updateResponsibleCard = async (req, res) => {
             res.json({ message: "Responsible card updated successfully" });
         });
     } catch (error) {
+        console.error('Server error in getAllStorySections:', error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -244,12 +249,14 @@ const deleteResponsibleCard = async (req, res) => {
             res.json({ message: "Responsible card deleted successfully" });
         });
     } catch (error) {
+        console.error('Server error in getAllStorySections:', error.message);
         res.status(500).json({ message: "Internal server error" });
     }
 };
 
 
-module.exports = {getAllHeroSections,updateHeroSection,getAllStorySections,updateStorySection,
+module.exports = {
+    getAllHeroSections, updateHeroSection, getAllStorySections, updateStorySection,
     getAllResponsibleCards,
     createResponsibleCard,
     updateResponsibleCard,

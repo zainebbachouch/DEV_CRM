@@ -1,6 +1,6 @@
 const db = require("../config/dbConnection");
 const { isAuthorize } = require('../services/validateToken')
-const { saveToHistory, search } = require('./callback');
+const { saveToHistory } = require('./callback');
 const axios = require('axios');
 
 
@@ -131,7 +131,7 @@ const createProduct = async (req, res) => {
 
         const { nom_produit, prix_produit, description_produit, categorie_idcategorie, remise_produit, photo_produit } = req.body;
 
-        if (!nom_produit || !prix_produit || !description_produit || !categorie_idcategorie || !remise_produit ) {
+        if (!nom_produit || !prix_produit || !description_produit || !categorie_idcategorie || !remise_produit) {
             return res.status(400).json({ message: "All fields are required." });
         }
 
@@ -155,7 +155,7 @@ const createProduct = async (req, res) => {
             'INSERT INTO produit (nom_produit, prix_produit, description_produit, categorie_idcategorie, remise_produit, photo_produit, date_ajout_produit) VALUES (?, ?, ?, ?, ?, ?, ?)',
             [nom_produit, prix_produit, description_produit, categorie_idcategorie, remise_produit, photo_produit, dateAjoutProduit]
         );
-
+        console.log(result)
         res.json({ message: "Produit créé avec succès", nom_produit });
     } catch (error) {
         console.error('Error:', error);
@@ -529,58 +529,7 @@ const getUnpaidProducts = async (req, res) => {
 
 
 
-const getPeriodSellingFuture = async (req, res) => {
-    try {
-        const { period, features } = req.body; // Extract features along with period
-        let dateFormat, dateCondition;
 
-        switch (period) {
-            case 'daily':
-                dateFormat = '%Y-%m-%d';
-                dateCondition = `DATE(f.date_facture) = CURDATE()`;
-                break;
-            case 'weekly':
-                dateFormat = '%Y-%u'; // Week number
-                dateCondition = `YEARWEEK(f.date_facture, 1) = YEARWEEK(CURDATE(), 1)`;
-                break;
-            case 'monthly':
-                dateFormat = '%Y-%m';
-                dateCondition = `MONTH(f.date_facture) = MONTH(CURDATE()) AND YEAR(f.date_facture) = YEAR(CURDATE())`;
-                break;
-            case 'yearly':
-                dateFormat = '%Y';
-                dateCondition = `YEAR(f.date_facture) = YEAR(CURDATE())`;
-                break;
-            default:
-                return res.status(400).json({ message: "Invalid period specified" });
-        }
-
-        const query = `
-            SELECT DATE_FORMAT(f.date_facture, '${dateFormat}') AS period, p.nom_produit, SUM(lc.quantite_produit) AS totalSold
-            FROM produit p
-            JOIN ligne_de_commande lc ON p.idproduit = lc.produit_idproduit
-            JOIN commande c ON lc.commande_idcommande = c.idcommande
-            JOIN facture f ON c.idcommande = f.idcommande
-            WHERE f.etat_facture = 'payee' AND ${dateCondition}
-            GROUP BY period, p.nom_produit
-            ORDER BY totalSold DESC
-        `;
-
-        const results = await new Promise((resolve, reject) => {
-            db.query(query, (err, result) => {
-                if (err) return reject(err);
-                resolve(result);
-            });
-        });
-
-
-
-        res.status(200).json({ topSellingProducts: results });
-    } catch (error) {
-        console.error("Error fetching top selling products:", error);
-        res.status(500).json({ message: "Internal server error" });
-    }
-};
 
 
 

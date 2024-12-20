@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../index'); // Adjust path to your app entry point
+const { app, server } = require('../index'); // Import app, server, and io
 
 jest.mock('../services/validateToken', () => ({
     isAuthorize: jest.fn(() => ({
@@ -13,6 +13,40 @@ jest.mock('../services/validateToken', () => ({
         },
     })),
 }));
+
+let testHttpServer, testSocketServer;
+
+
+beforeAll(async () => {
+    const TEST_PORT = 6000; // Use test-specific HTTP port
+    const TEST_SOCKET_PORT = 9000; // Use test-specific Socket port
+
+    // Start test HTTP server
+    testHttpServer = app.listen(TEST_PORT, () => {
+        console.log(`Test HTTP server running on port ${TEST_PORT}`);
+    });
+
+    // Start test Socket server
+    testSocketServer = server.listen(TEST_SOCKET_PORT, () => {
+        console.log(`Test Socket server running on port ${TEST_SOCKET_PORT}`);
+    });
+
+    // Ensure both servers are started before proceeding
+    await new Promise((resolve) => setTimeout(resolve, 500));
+});
+
+afterAll(async () => {
+    // Close both test servers after all tests
+    if (testHttpServer) {
+        await new Promise((resolve) => testHttpServer.close(resolve));
+        console.log('Test HTTP server closed.');
+    }
+
+    if (testSocketServer) {
+        await new Promise((resolve) => testSocketServer.close(resolve));
+        console.log('Test Socket server closed.');
+    }
+});
 
 describe('Category Routes - Add and Fetch Only', () => {
     test('POST /api/createCategorie - Create a new category', async () => {

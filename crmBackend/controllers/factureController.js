@@ -245,7 +245,7 @@ const createInvoice = async (req, res) => {
         // try 
         
         const {
-            date_facture,
+            
             etat_facture,
             statut_paiement_facture,
             methode_paiment_facture,

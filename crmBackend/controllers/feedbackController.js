@@ -497,7 +497,7 @@ const Like_Dislike_Feedback = async (req, res) => {
                         DELETE FROM feedback_reactions 
                         WHERE feedback_id = ? AND ${columnName} = ?
                     `;
-                    db.query(deleteQuery, [feedback_id, userId], (err, deleteResult) => {
+                    db.query(deleteQuery, [feedback_id, userId], (err) => {
                         if (err) {
                             console.error('Error deleting reaction:', err);
                             return res.status(500).json({ message: "Internal server error" });
@@ -515,7 +515,7 @@ const Like_Dislike_Feedback = async (req, res) => {
                         SET is_like = ? 
                         WHERE feedback_id = ? AND ${columnName} = ?
                     `;
-                    db.query(updateQuery, [is_like ? 1 : 0, feedback_id, userId], (err, updateResult) => {
+                    db.query(updateQuery, [is_like ? 1 : 0, feedback_id, userId], (err) => {
                         if (err) {
                             console.error('Error updating reaction:', err);
                             return res.status(500).json({ message: "Internal server error" });
@@ -534,7 +534,7 @@ const Like_Dislike_Feedback = async (req, res) => {
                         INSERT INTO feedback_reactions (feedback_id, ${columnName}, is_like)
                         VALUES (?, ?, ?)
                     `;
-                    db.query(insertQuery, [feedback_id, userId, is_like ? 1 : 0], (err, insertResult) => {
+                    db.query(insertQuery, [feedback_id, userId, is_like ? 1 : 0], (err) => {
                         if (err) {
                             console.error('Error inserting reaction:', err);
                             return res.status(500).json({ message: "Internal server error" });

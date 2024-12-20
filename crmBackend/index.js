@@ -334,7 +334,7 @@ io.on('connection', (socket) => {
 
 
 
-  var senderEmail, iduser, selectedEmployees, role;
+  var senderEmail, iduser, selectedEmployees;
 
 
   socket.on('newProduct', async (product) => {
@@ -342,7 +342,7 @@ io.on('connection', (socket) => {
 
     senderEmail = product.email;
     iduser = product.userid;
-    role = product.role;
+
 
     try {
       const req = { body: product };
@@ -412,7 +412,7 @@ io.on('connection', (socket) => {
     console.log('passCommand received', commandData);
     senderEmail = commandData.email;
     iduser = commandData.userid;
-    var role = commandData.role;
+
 
     try {
       const req = { body: commandData };
@@ -470,7 +470,7 @@ io.on('connection', (socket) => {
     console.log('updateCommandStatus received', commandData);
     senderEmail = commandData.email;
     iduser = commandData.userid;
-    var role = commandData.role;
+
 
     try {
       const req = { body: commandData };
@@ -534,7 +534,7 @@ io.on('connection', (socket) => {
     console.log('createTask received', data);
     senderEmail = data.email;
     iduser = data.userid;
-    var role = data.role;
+
     selectedEmployees = data.selectedEmployees;
 
 
@@ -666,18 +666,26 @@ io.on('connection', (socket) => {
 
 
 
+const PORT = process.env.PORT || 4000; // Default HTTP server port
+const SOCKET_PORT = process.env.SOCKET || 8000; // Default Socket server port
 
+//let httpServer; // Declare httpServer globally for export
+//let socketServer; // Declare socketServer globally for export
 
+const isTestEnv = process.env.NODE_ENV === 'test'; // Detect if running in test environment
 
+// Start servers only if not in test environment
+if (!isTestEnv) {
+  app.listen(PORT, () => {
+    console.log(`HTTP server running on port ${PORT}`);
+  });
 
+  server.listen(SOCKET_PORT, () => {
+    console.log(`Socket server running on port ${SOCKET_PORT}`);
+  });
+}
+else {
+  console.log('Running in test environment, servers will not auto-start.');
+}
 
-
-server.listen(8000, () => {
-  console.log("socket server is running ")
-})
-app.listen(4000, () => {
-  console.log('Server running on https://localhost:4000');
-
-});
-
-module.exports = app; // Export the app for testing
+module.exports = { app, server }; // Export app, server, and socket.io instance

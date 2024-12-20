@@ -1,6 +1,6 @@
 const db = require("../config/dbConnection");
 const { isAuthorize } = require('../services/validateToken')
-const { saveToHistory, getEmailById } = require('./callback');
+const { saveToHistory } = require('./callback');
 
 
 
@@ -166,7 +166,7 @@ const updateTask = async (req, res) => {
         }
 
         const updateQuery = 'UPDATE tache SET messageTache = ?, title=? , deadline = ?, statut = ?, priorite = ?, `order` = ? WHERE id = ?';
-        db.query(updateQuery, [messageTache, title, deadline, statut, priorite, order, id], (err, result) => {
+        db.query(updateQuery, [messageTache, title, deadline, statut, priorite, order, id], (err) => {
             if (err) return res.status(500).json({ error: err.message });
 
             // Delete old employee assignments
@@ -241,7 +241,7 @@ const updateTaskStatus = async (req, res) => {
         });
 
         // Wait for both promises to complete
-        const [updateResult, namesResult] = await Promise.all([updateTaskPromise, fetchNamesPromise]);
+        const [namesResult] = await Promise.all([updateTaskPromise, fetchNamesPromise]);
 
         // Generate the names of the employees
         const nameOfSender = namesResult.map(e => `${e.nom_employe} ${e.prenom_employe}`).join(', ');
@@ -322,7 +322,7 @@ const deleteTask = async (req, res) => {
 
         const { id } = req.params;
         const query = 'DELETE FROM tache WHERE id = ?';
-        db.query(query, [id], (err, result) => {
+        db.query(query, [id], (err) => {
             if (err) {
                 console.error('Error deleting task:', err);
                 return res.status(500).json({ error: 'Internal Server Error' });

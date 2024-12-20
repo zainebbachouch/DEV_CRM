@@ -5,14 +5,9 @@ require("dotenv").config();
 const { isAuthorize } = require('../services/validateToken')
 const { createToken } = require('../services/createTokenService.js');
 const { saveToHistory, getInformationOfRole, updateInformationOfRole } = require('./callback')
-const { google } = require('googleapis');
 const nodemailer = require('nodemailer');
-const { OAuth2Client } = require('google-auth-library');
-const tokens = require('../document/tokens.json');
-const fs = require('fs');
-const path = require('path');
-const jwt = require('jsonwebtoken');
-const OAuth2 = google.auth.OAuth2;
+
+
 
 
 
@@ -97,13 +92,7 @@ const loginAdmin = async (email, password) => {
         }
 
         const token = await createToken("admin", user.idadmin, user.email_admin, process.env.JWT_SECRET);
-        const { mdp, ...others } = user;
 
-        /*  res.cookie("accessToken", token, {
-              httpOnly: true,
-              sameSite: "none",
-              secure: true,
-          }).status(200).json({ role: 'admin', user: { username: user.nom_admin }, others });*/
 
 
         db.query(`UPDATE admin SET date_inscription_admin = NOW() WHERE idadmin = ?`, [user.idadmin]);
@@ -295,10 +284,10 @@ const registerA = async (req, res) => {
         };
 
         const result = await db.query('INSERT INTO admin SET ?', userData);
-
+        console.log(result)
         if (result) {
             console.log("Admin registered successfully");
-            db.query(`UPDATE admin SET date_inscription_admin = now() WHERE idadmin = ?`, [result.insertId], (err, result) => {
+            db.query(`UPDATE admin SET date_inscription_admin = now() WHERE idadmin = ?`, [result.insertId], (err) => {
                 if (err) {
                     console.error(err);
                     return res.status(500).json({ message: "Internal server error" });
@@ -348,7 +337,7 @@ const forgotPassword = async (req, res) => {
         text: `Vous avez demandé une réinitialisation de mot de passe. Utilisez ce code : ${resetCode}`
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    transporter.sendMail(mailOptions, (error) => {
         if (error) {
             console.log('Erreur d\'envoi d\'email:', error);
             return res.status(500).json({ message: 'Erreur d\'envoi d\'email' });

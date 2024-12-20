@@ -145,20 +145,17 @@ const searchCommands = async (req, res) => {
 
 
 const updateCommandStatus = async (req, res) => {
-    // Authorization check
     const authResult = await isAuthorize(req, res);
     if (authResult.message !== 'authorized') {
         return res.status(401).json({ message: "Unauthorized" });
     }
 
-    // Check role
     const userRole = authResult.decode.role;
     if (!['admin', 'employe'].includes(userRole)) {
         return res.status(403).json({ message: "Insufficient permissions" });
     }
 
     const { idcommande, newStatus } = req.body;
-
     if (!idcommande || !newStatus) {
         return res.status(400).json({ message: "Missing required fields" });
     }
@@ -182,20 +179,25 @@ const updateCommandStatus = async (req, res) => {
 
     const sqlQuery = 'UPDATE commande SET statut_commande = ? WHERE idcommande = ?';
 
-    db.query(sqlQuery, [newStatus, idcommande], (err, result) => {
+    db.query(sqlQuery, [newStatus, idcommande], (err, result) => { // Include result if needed
         if (err) {
             console.error(err);
             return res.status(500).json({ message: "Internal Server Error" });
         }
+
+        if (result.affectedRows === 0) { // Check affected rows if meaningful
+            return res.status(404).json({ message: "Command not found" });
+        }
+
         res.json({ message: "Command status updated successfully" });
 
         const userId = authResult.decode.id;
-        //    const userRole = authResult.decode.role;
-        console.log('qui connecte', userId)
+        console.log('qui connecte', userId);
 
         saveToHistory('Statut de la commande mis à jour', userId, userRole);
     });
 };
+
 
 
 
@@ -325,7 +327,7 @@ const getCommandsByCommandId = async (req, res) => {
     const { CommandId } = req.params;
 
     // Construct SQL query with JOIN
-    const sqlQuery =` SELECT * 
+    const sqlQuery = ` SELECT * 
     FROM commande, client 
     WHERE idcommande = ? 
     AND commande.client_idclient = client.idclient
@@ -408,6 +410,6 @@ const deleteCommand = async (req, res) => {
 
 module.exports = {
     searchCommands, getCustomerByIDCommand, getAllCommands, updateCommandStatus,
-    getCommandsByClientId, getCommandsByCommandId, getTotalAmountAndDeliveryMethod, 
-    checkExistingInvoice,getCommandsStats,deleteCommand
+    getCommandsByClientId, getCommandsByCommandId, getTotalAmountAndDeliveryMethod,
+    checkExistingInvoice, getCommandsStats, deleteCommand
 }

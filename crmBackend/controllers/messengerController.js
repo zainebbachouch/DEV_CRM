@@ -1,6 +1,5 @@
 const db = require("../config/dbConnection");
 const { isAuthorize } = require('../services/validateToken')
-const axios = require('axios');
 
 
 const createMessage = async (req, res) => {
@@ -32,9 +31,9 @@ const createMessage = async (req, res) => {
         );
 
 
-
+        console.log(result)
         // Respond with success
-        res.json({ message: "Message envoyé avec succès", message });
+        res.json({ message: "Message envoyé avec succès" });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Server error' });
@@ -55,7 +54,7 @@ const listSpamByID = async (req, res) => {
             return res.status(403).json({ message: "Insufficient permissions" });
         }
 
-        db.query( 'SELECT * FROM messages WHERE id = ?', [messageId], (err, result) => {
+        db.query('SELECT * FROM messages WHERE id = ?', [messageId], (err, result) => {
             if (err) {
                 console.error(err);
                 return res.status(500).json({ message: "Internal Server Error" });
@@ -264,8 +263,8 @@ const updateSeenNotification = async (req, res) => {
 
 const getUnreadCount = async (req, res) => {
     try {
-        const email_destinataire  = req.params.email;
-        console.log("emmmmmmmmmmmmaaaaaaail ",req.params)
+        const email_destinataire = req.params.email;
+        console.log("emmmmmmmmmmmmaaaaaaail ", req.params)
         const query = 'SELECT COUNT(*) as unreadCount FROM notification WHERE email_destinataire = ? AND seen=false';
 
         const unreadCount = await new Promise((resolve, reject) => {
@@ -486,7 +485,7 @@ const deleteHistoryById = async (req, res) => {
 
 
 module.exports = {
-    listSpamByID ,
+    listSpamByID,
     getNotifications,
     deleteNotification,
     updateSeenNotification,
