@@ -15,8 +15,6 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root123
           MYSQL_DATABASE: crm_db
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root123
         ports:
           - 3306:3306
         options: >-
@@ -33,7 +31,7 @@ jobs:
       # Step 2: Wait for MySQL
       - name: Wait for MySQL
         run: |
-          for i in {1..30}; do
+          for i in {1..60}; do
             if mysqladmin ping -h localhost -u root --password=root123 --silent; then
               echo "MySQL is ready!";
               break;
@@ -42,35 +40,38 @@ jobs:
             sleep 2;
           done
 
-      # Step 2.1: Update MySQL Authentication
-      - name: Update MySQL Authentication
+      # Step 3: Update MySQL Authentication
+      - name: Configure MySQL Authentication
         run: |
-          mysql -h localhost -u root --password=root123 -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
+          docker exec $(docker ps -q --filter "ancestor=mysql:8.0") \
+            mysql -u root --password=root123 -e \
+            "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
 
-      # Step 3: Initialize Database Schema
+      # Step 4: Initialize Database Schema
       - name: Initialize Database Schema
         run: |
-          mysql -h localhost -u root --password=root123 crm_db < crmBackend/scripts/init.sql
+          docker exec $(docker ps -q --filter "ancestor=mysql:8.0") \
+            mysql -u root --password=root123 crm_db < crmBackend/scripts/init.sql
 
-      # Step 4: Set up Node.js
+      # Step 5: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18 # Adjust to your project's Node.js version
 
-      # Step 5: Install dependencies
+      # Step 6: Install dependencies
       - name: Install dependencies
         run: |
           cd crmBackend
           npm install
 
-      # Step 6: Run ESLint (Quality check)
+      # Step 7: Run ESLint (Quality check)
       - name: Run ESLint
         run: |
           cd crmBackend
           npx eslint .
 
-      # Step 7: Run Unit Tests
+      # Step 8: Run Unit Tests
       - name: Run Unit Tests
         env:
           NODE_ENV: test
@@ -82,14 +83,14 @@ jobs:
           cd crmBackend
           npm test
 
-      # Step 8: Log in to Docker Hub
+      # Step 9: Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Step 9: Build and Push Docker Image
+      # Step 10: Build and Push Docker Image
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
