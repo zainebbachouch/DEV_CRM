@@ -25,9 +25,8 @@ jobs:
           done
 
       - name: Test MySQL Connection
-         run: |
-           mysql -h localhost -u root --password=root123 -e "USE crm_db; SHOW TABLES;"
-
+        run: |
+          mysql -h localhost -u root --password=root123 -e "USE crm_db; SHOW TABLES;"
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
