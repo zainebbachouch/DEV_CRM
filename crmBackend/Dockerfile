@@ -1,18 +1,18 @@
-# Étape 1: Utiliser l'image Node.js officielle
 FROM node:18
 
-# Définir le répertoire de travail
 WORKDIR /app
 
-# Copier les fichiers package.json et installer les dépendances
+# Copy package files
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-# Copier le code source
+# Copy the rest of the application
 COPY . .
 
-# Exposer le port de ton backend (ex: 5000)
+# Expose the backend's port (e.g., 4000)
 EXPOSE 4000
 
-# Démarrer le serveur
-CMD ["node", "index.js"]
+# Use npm start to run the app
+CMD ["npm", "start"]

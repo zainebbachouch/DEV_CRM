@@ -3,11 +3,16 @@ FROM node:18 AS build
 WORKDIR /app
 
 # Only copy package.json and package-lock.json first (better cache handling)
-COPY package*.json ./
+#COPY package*.json ./
+# Copy the package.json and package-lock.json files
+COPY ./front-end/package*.json ./
+
 RUN npm install --legacy-peer-deps
 
 # Copy the entire source code
-COPY . ./
+#COPY . ./
+COPY ./front-end ./
+
 RUN npm run build
 
 # Step 2: Serve the built application with Nginx
