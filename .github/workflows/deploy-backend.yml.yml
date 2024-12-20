@@ -18,6 +18,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
+          --default-authentication-plugin=mysql_native_password
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
           --health-timeout=5s
@@ -62,7 +63,7 @@ jobs:
       - name: Run Unit Tests
         env:
           NODE_ENV: test
-          DB_HOST: 127.0.0.1 # Use localhost for testing
+          DB_HOST: localhost # Use localhost for testing
           DB_USERNAME: root
           DB_PASSWORD: root123
           DB_NAME: crm_db
@@ -84,18 +85,3 @@ jobs:
           context: ./crmBackend
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-backend:latest
-
-      # Step 9: Deploy to Production (Optional)
-      # Uncomment this section if you want to deploy directly after building.
-      # For example, deploying to a server using SSH:
-      # - name: Deploy to Production
-      #   uses: appleboy/ssh-action@v0.1.6
-      #   with:
-      #     host: ${{ secrets.PRODUCTION_SERVER_HOST }}
-      #     username: ${{ secrets.PRODUCTION_SERVER_USER }}
-      #     password: ${{ secrets.PRODUCTION_SERVER_PASSWORD }}
-      #     script: |
-      #       docker pull ${{ secrets.DOCKER_USERNAME }}/my-backend:latest
-      #       docker stop my-backend || true
-      #       docker rm my-backend || true
-      #       docker run -d --name my-backend -p 4000:4000 ${{ secrets.DOCKER_USERNAME }}/my-backend:latest
