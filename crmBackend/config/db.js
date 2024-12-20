@@ -1,6 +1,6 @@
 const jest = require('jest');
 
-let mockInsertId = 89; // Start with the last known ID
+let mockInsertId = 90; // Start with the last known ID
 let mockCategories = []; // Mocked in-memory categories
 
 const mockQuery = jest.fn((sql, params, callback) => {
