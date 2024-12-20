@@ -18,12 +18,11 @@ jobs:
         ports:
           - 3306:3306
         options: >-
+          --default-authentication-plugin=mysql_native_password
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
-        command: --default-authentication-plugin=mysql_native_password
-
 
     steps:
       # Step 1: Checkout code
@@ -45,12 +44,12 @@ jobs:
       # Step 2.1: Update MySQL Authentication
       - name: Update MySQL Authentication
         run: |
-          mysql -h 127.0.0.1 -u root --password=root123 -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
+          mysql -h localhost -u root --password=root123 -e "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
 
       # Step 3: Initialize Database Schema
       - name: Initialize Database Schema
         run: |
-          mysql -h 127.0.0.1 -u root --password=root123 crm_db < crmBackend/scripts/init.sql
+          mysql -h localhost -u root --password=root123 crm_db < crmBackend/scripts/init.sql
 
       # Step 4: Set up Node.js
       - name: Set up Node.js
