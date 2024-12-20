@@ -28,7 +28,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Wait for MySQL to be ready
+      # Step 2: Wait for MySQL
       - name: Wait for MySQL
         run: |
           for i in {1..30}; do
@@ -40,12 +40,10 @@ jobs:
             sleep 2;
           done
 
-      # Step 3: Apply Custom MySQL Config
-      - name: Configure MySQL Authentication
+      # Step 3: Initialize Database Schema
+      - name: Initialize Database Schema
         run: |
-          docker exec $(docker ps -q --filter "ancestor=mysql:8.0") \
-            mysql -u root --password=root123 -e \
-            "ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root123'; FLUSH PRIVILEGES;"
+          mysql -h localhost -u root --password=root123 crm_db < crmBackend/scripts/init.sql
 
       # Step 4: Set up Node.js
       - name: Set up Node.js
