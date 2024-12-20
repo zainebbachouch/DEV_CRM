@@ -35,10 +35,15 @@ jobs:
       # Step 5: Run Unit Tests
       - name: Run Unit Tests
         env:
-          NODE_ENV: test # Ensure NODE_ENV is set to test for proper configuration
+          NODE_ENV: test
+          DB_HOST: 127.0.0.1 # Use localhost for testing
+          DB_USERNAME: root  # Replace with your test DB user
+          DB_PASSWORD: root123 # Replace with your test DB password
+          DB_NAME: crm_db # Use a separate test database
         run: |
           cd crmBackend
           npm test
+
 
       # Step 6: Log in to Docker Hub
       - name: Log in to Docker Hub
