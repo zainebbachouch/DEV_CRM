@@ -21,7 +21,7 @@ jobs:
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=3
+          --health-retries=5
 
     steps:
       # Step 1: Checkout code
@@ -43,13 +43,13 @@ jobs:
       # Step 3: Initialize Database Schema
       - name: Initialize Database Schema
         run: |
-          mysql -h localhost -u root --password=root123 crm_db < crmBackend/scripts/init.sql
+          mysql -h 127.0.0.1 -u root --password=root123 crm_db < crmBackend/scripts/init.sql
 
       # Step 4: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Adjust to your project's Node.js version
+          node-version: 18
 
       # Step 5: Install dependencies
       - name: Install dependencies
@@ -67,7 +67,7 @@ jobs:
       - name: Run Unit Tests
         env:
           NODE_ENV: test
-          DB_HOST: localhost # Use localhost for testing
+          DB_HOST: localhost
           DB_USERNAME: root
           DB_PASSWORD: root123
           DB_NAME: crm_db
