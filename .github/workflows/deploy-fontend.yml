@@ -31,6 +31,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./front-end          
+          context: ./front-end         
+          file: ./front-end/Dockerfile.react  # Specify the correct Dockerfile pat 
           push: true
+          no-cache: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
