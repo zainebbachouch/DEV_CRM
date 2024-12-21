@@ -32,6 +32,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./front-end
-          file: ./front-end/Dockerfile.react
+          file: Dockerfile.react
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
