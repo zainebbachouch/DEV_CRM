@@ -1,0 +1,21 @@
+# Ignore node_modules in both folders
+crmBackend/node_modules/
+crmBackend/IA/
+front-end/node_modules/
+
+# Ignore only the IA folder in crmBackend
+crmBackend/IA/
+
+
+# General exclusions
+*.log
+.env
+__pycache__/
+*.sll
+venv/
+
+# Front-end specific
+front-end/build/
+front-end/.pnp
+front-end/.pnp.js
+front-end/coverage/

@@ -1,0 +1,135 @@
+.mb-2 {
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .searchButton
+  {
+    width: fit-content;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    color: var(--bs-light) !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-danger:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+  }
+  .invoicesTable
+  {
+    position: relative;
+    left: 35vh !important;
+    width: 80vw !important;
+  }
+  .invoicesTable th, .invoicesTable td {
+    white-space: nowrap;
+  }
+  
+  .invoicesTable th, .invoicesTable td {
+    width: auto; /* Allow columns to adjust width automatically */
+  }
+  
+  .invoicesTable th:first-child, .invoicesTable td:first-child {
+    width: 10%; /* Adjust width of first column (ID column) */
+  }
+  
+  .invoicesTable th:last-child, .invoicesTable td:last-child {
+    width: 15%; /* Adjust width of action column */
+  }
+  .showButtonText
+  {
+    text-decoration: none;
+    display: flex;
+    align-items: center; 
+    font-size: 16px;
+  }
+  .deleteButtonInv
+  {
+    font-size: 18px; 
+    color: var(--bs-light) !important;
+    background-color: var(--bs-danger) !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+  .showButtonInv
+  {
+    font-size: 18px; 
+    color: var(--bs-light) !important;
+    background-color: var(--bs-success) !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }

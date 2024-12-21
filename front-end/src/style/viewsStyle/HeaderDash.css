@@ -1,0 +1,28 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cardsContainer
+{
+    margin-left: 150px;
+    display: flex;
+    justify-content: center;
+    
+}
+.cardContainer
+{
+    margin-left: 15px;
+    margin-right: 0;
+    width: 22%;
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 25px;
+    
+}
+.cardContainer:hover
+{
+    border: 1px solid rgb(125, 124, 124);
+    border-radius: 25px;
+}

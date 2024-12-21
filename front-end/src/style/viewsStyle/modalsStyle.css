@@ -1,0 +1,25 @@
+.addProductModal
+{
+   position: relative !important;
+   left: 25vw !important; 
+   top: 38vh !important;
+   margin: auto !important;
+   height:95vh !important;
+   overflow-y: scroll !important;
+   padding: 0px !important;
+}
+.formControlSelect
+{
+    height: fit-content;
+}
+.doubleFnButton
+{
+    color: #fff;
+    background-color: var(--bs-success) !important;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}

@@ -1,0 +1,19 @@
+.actionsContainer
+{
+    position: relative;
+    width: 50vw !important;
+    left: -125px;
+}
+select 
+{
+width: fit-content ;
+}
+td,th
+{
+    width: 12px !important;
+}
+#btnUpdate
+{
+    background-color: #28A745 !important;
+    border-color: #28A745 !important;
+}

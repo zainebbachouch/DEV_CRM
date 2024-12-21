@@ -1,0 +1,19 @@
+# Node modules and virtual environment
+node_modules/
+venv/
+# Logs and temp files
+*.log
+*.tmp
+# Compiled files
+*.pyd
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.exe
+# Ignore cache folders
+__pycache__/
+.cache/
+# Git LFS for large files
+*.csv filter=lfs diff=lfs merge=lfs -text
+*.pack
+*.pkl filter=lfs diff=lfs merge=lfs -text
+# Environment variables
+.env

@@ -1,0 +1,286 @@
+.navbar {
+  background-color: #fff;
+  height: 10vh;
+  width: 82.3vw !important;
+
+}
+.icon1
+{
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.flag {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.profile {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.basket {
+  position: relative;
+}
+
+.card-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(50%, -50%);
+}
+
+.label {
+  font-weight: 500 !important;
+}
+
+
+
+
+
+
+
+
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+input[type="date"] {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+button[type="button"] {
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #0069d9;
+}
+
+
+
+
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.icon1 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  min-width: 160px;
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+
+/*notification-profilenotification-profile*/
+
+
+.notification-profile {
+  max-height: 400px;
+  /* Ajoutez cette ligne pour définir la hauteur maximale */
+  overflow-y: auto;
+  /* Ajoutez cette ligne pour permettre le défilement vertical */
+
+}
+
+.notification-profile div {
+  display: flex;
+
+}
+
+/*notification*/
+/*notification*/
+.notification-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
+}
+
+.notification-list {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 300px;
+  max-height: 400px;
+  /* Ajoutez cette ligne pour définir la hauteur maximale */
+  overflow-y: auto;
+  /* Ajoutez cette ligne pour permettre le défilement vertical */
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 100;
+  padding: 10px;
+}
+
+.notification-item {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.no-notifications {
+  padding: 8px;
+  text-align: center;
+  color: #999;
+}
+.basketIcon
+{
+  position: relative;
+  left: 250px;
+  font-size: 22px !important;
+ 
+}
+.arrowIcon
+{
+  color: #0069d9;
+  font-size: 18px;
+}
+.notificationContainer
+{
+  width:60% !important;
+  margin: auto;
+  margin-top:50px !important;
+}
+
+.notificationImageContainer
+{
+  background-color: var(--bs-primary);
+  width:50px !important;
+  height:50px !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #fff;
+  background-color:#6060FF;
+}
+.deleteNotification
+{
+  color: var(--bs-danger);
+}
+.deleteNotificationBtn
+{
+  background-color: var(--bs-danger) !important;
+}
+.menuDropDown
+{
+  position: absolute;
+  top:50px;
+  left: -125px;
+  z-index: 1;
+  background-color: #0C2556;
+  display: flex;
+  width: 125px;
+  flex-direction: column;
+  row-gap: 5px;
+  font-size: 18px;
+  border-radius: 15px;
+}
+.menuDropDown div 
+{
+  background-color: #0F2F6B;
+  width: 100%;
+  padding: 5px;
+  border-radius: 15px;  
+  color: #fff !important;
+
+}
+.menuItemText
+{
+  margin-inline: 3px;
+  
+}
+.menuItemText,.miniIcon
+{
+  color: #fff ;
+  
+}
+.completeCommandContainer
+{
+  position: relative;
+  left: 250px;
+  width: 80vw;
+  
+}
+#passCommandBtn
+{
+  color: #fff !important;
+  background-color: #28A745 !important;
+  position: relative;
+  left:35vw;
+  border: none !important;
+}
