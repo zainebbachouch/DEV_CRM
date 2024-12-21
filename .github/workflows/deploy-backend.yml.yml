@@ -30,7 +30,7 @@ jobs:
 
      # - name: Run Unit Tests
       #  run: |
-     #     cd crmBackend
+     #     cd crmBackendz
       #    npm test
 
       - name: Log in to Docker Hub
